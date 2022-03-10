@@ -1,16 +1,24 @@
 let users = [];
 
-fetch('https://jsonplaceholder.typicode.com/users')
+fetch('./phone_numbers.json')
   .then(response => response.json())
   .then(json => {
-    users = json.map(user => {
-      let box = document.createElement("div")
-      box.className = "box"
-      box.innerHTML = `User ID: ${user.id}<br>
-                        ${user.name}`
-      document.getElementById('container').appendChild(box)
-      return {name: user.name, userID: user.id, box: box}
-            })}
+    // console.log(json)
+    for(let user in json) {
+      // console.log(user, json[user])
+      for(let el in json[user]) {
+        console.log(user, json[user].Company)
+      }
+    }
+    // users = json.map(user => {
+    //   let box = document.createElement("div")
+    //   box.className = "box"
+    //   box.innerHTML = `User ID: ${user.id}<br>
+    //                     ${user.name}`
+    //   document.getElementById('container').appendChild(box)
+    //   return {name: user.name, userID: user.id, box: box}
+            // })
+          }
        )
 
 const searchItem = document.querySelector('.searchbox')
