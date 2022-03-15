@@ -1,23 +1,28 @@
 let users = [];
 
+console.log(users)
+
 fetch('./phone_numbers.json')
   .then(response => response.json())
   .then(json => {
     // console.log(json)
-    for(let user in json) {
-      // console.log(user, json[user])
-      for(let el in json[user]) {
-        console.log(user, json[user].Company)
-      }
-    }
-    // users = json.map(user => {
-    //   let box = document.createElement("div")
-    //   box.className = "box"
-    //   box.innerHTML = `User ID: ${user.id}<br>
-    //                     ${user.name}`
-    //   document.getElementById('container').appendChild(box)
-    //   return {name: user.name, userID: user.id, box: box}
-            // })
+    // for(let user in json) {
+    //   // console.log(user, json[user])
+    //   for(let el in json[user]) {
+    //     console.log(user, json[user].Company)
+    //   }
+    // }
+    users = json.map(user => {
+      Object.entries(user).forEach(([key, value])=>{
+        // console.log(`This is ${key} of ${value.Company}`)
+        let box = document.createElement("div")
+        box.className = "box"
+        box.innerHTML = `User ID: ${key}<br>
+        ${value.Company}`
+        document.getElementById('container').appendChild(box)
+        return {name: value.Company, userID: key, box: box}
+      })
+            })
           }
        )
 
