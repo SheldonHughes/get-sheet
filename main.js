@@ -12,6 +12,7 @@ fetch('./phone_numbers.json')
     //     console.log(user, json[user].Company)
     //   }
     // }
+    //Check into removing the first json.map and beginning with Object.entries()
     users = json.map(user => {
       Object.entries(user).forEach(([key, value])=>{
         // console.log(`This is ${key} of ${value.Company}`)
