@@ -1,6 +1,6 @@
 let users = [];
 
-fetch('./phone_numbers.json')
+fetch('phone_numbers.json')
   .then(response => response.json())
   .then(json => {
     // console.log(json)
@@ -13,10 +13,10 @@ fetch('./phone_numbers.json')
     //Check into removing the first json.map and beginning with Object.entries()
     users = //json.map(user => {
       Object.entries(json).map(([key, value])=>{
-        // console.log(`This is ${key} of ${value.Company}`)
+        console.log(`This is ${key} of ${value.Company}`)
         let box = document.createElement("div")
         box.className = "box"
-        box.innerHTML = `User: ${key}<br>
+        box.innerHTML = `Name: ${key}<br>
         ${value.Company}`
         document.getElementById('container').appendChild(box)
         return {company: value.Company, name: key, box: box}
