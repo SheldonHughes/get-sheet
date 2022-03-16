@@ -19,7 +19,7 @@ fetch('./phone_numbers.json')
         box.innerHTML = `User: ${key}<br>
         ${value.Company}`
         document.getElementById('container').appendChild(box)
-        return {name: value.Company, userID: key, box: box}
+        return {company: value.Company, name: key, box: box}
       })
             })
        //   }
@@ -30,7 +30,7 @@ const searchItem = document.querySelector('.searchbox')
     const value = isNaN(e.target.value) ? e.target.value.toString() : e.target.value.toLowerCase()
     users.forEach(user =>{
       console.log(user)
-      const isVisible = user.name.toLowerCase().includes(value) || user.userID.toString().includes(value)
+      const isVisible = user.company.toLowerCase().includes(value) || user.name.toString().includes(value)
       user.box.classList.toggle('hide', !isVisible)
     })
 })
