@@ -46,11 +46,12 @@
   .box {
     border-radius: .5em;
     width: 250px;
-    padding: 60px;  
+    padding: 3rem;  
     text-align: center;
-    font-size: 25px;
+    font-size: 1.2rem;
     box-shadow: 1em;
-    background-color: teal;
+    background: rgb(76,149,236);
+    background: linear-gradient(45deg, rgba(76,149,236,1) 0%, rgba(178,178,225,1) 0%, rgba(117,209,228,1) 100%);
   }
   .green {
     background-color: green;
