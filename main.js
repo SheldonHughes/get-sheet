@@ -25,14 +25,14 @@ fetch('phone_numbers.json')
         }
       )
       
-// console.log(users)
+console.log(users)
 
 const searchItem = document.querySelector('.searchbox')
   searchItem.addEventListener('input', e =>{
-    const value = isNaN(e.target.value) ? e.target.value.toString() : e.target.value.toLowerCase()
+    const value = isNaN(e.target.value) ? e.target.value.toString().toLowerCase() : e.target.value.toLowerCase()
     users.forEach(user =>{
       console.log(user)
-      const isVisible = user.company.toLowerCase().includes(value) || user.name.toString().includes(value)
+      const isVisible = user.company.toLowerCase().includes(value) || user.name.toLowerCase().includes(value)
       user.box.classList.toggle('hide', !isVisible)
     })
 })

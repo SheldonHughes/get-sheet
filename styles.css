@@ -28,7 +28,7 @@
   .searchbox{
     border: 1px solid black;
     box-shadow: 2px 1px black;
-    
+    border-radius: 5px;    
   }
   
   .empty {
@@ -37,11 +37,11 @@
   }
     
     
-   .grid-container {
+  .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-     justify-items: center;
-     gap: 1rem;
+    justify-items: center;
+    gap: 1rem;
   }
   .box {
     border-radius: .5em;
