@@ -1,9 +1,18 @@
+body {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
 .hide {
     display: none;
   }
   
   .header {
-    height: auto;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -35,13 +44,46 @@
     visibility: none;
     grid-column: 1;
   }
-    
-    
+
+  .company {
+    height: 2.5rem;
+    width: auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: azure;
+    text-align: left;
+  }
+
+  .container {
+    display:flex;
+    background-color: aqua;
+  }
+
+  .container__sidebar {
+    /* position: absolute; */
+    /* display: flex; */
+    width:300px;
+    height: 800px;
+    background-color: gainsboro;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 1rem;
+    overflow: hidden;
+    margin-left: 5px;
+  }
+
+  .container__main {
+    flex: 1;
+  }
+  
   .grid-container {
+    /* flex: 1; */
     display: grid;
+    height: 800px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     justify-items: center;
     gap: 1rem;
+    overflow: auto;
   }
   .box {
     border-radius: .5em;
