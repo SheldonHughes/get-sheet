@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css" />
-    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <title>Directory</title>
 </head>
 <!-- Create sidebar that populates all unique companies and with a searchbar on top that filters to the desired companies. Each copmany should have a link that opens info cards in main body. -->
 <body>
@@ -14,7 +16,7 @@
            <h1 class = "title">TBS Directory</h1>
         <div class="search">
           <form>
-            <label for="searchbox">Search</label><br>
+            <label for="searchbox">Search</label>
                    <input class="searchbox" id="searchbox" type="search" placeholder="Search name or Company">
           </form>
         </div>
@@ -22,11 +24,19 @@
      <div class="container">
        <aside
            class="container__sidebar">
-           <ul class="company">Company 1</ul>
-           <ul class="company">Company 2</ul>
-           <ul class="company">Company 3</ul>
-           <ul class="company">Company 4</ul>
-           <ul class="company">Company 5</ul>
+           <div class="company__search">
+            <label for="company-search">Search</label>
+            <input class="searchbox" id="company-search" placeholder="Enter company name" type="search">
+          </div>
+
+           <!-- TODO: consider using anchor tags instead of ul elements -->
+           <div>
+             <ul class="company"><a href="">Company 1 and done<span class="material-icons md-18">group</span></a></ul>
+             <ul class="company"><a href="">Company 2<span class="material-icons md-18">group</span></a></ul>
+             <ul class="company"><a href="">Company 3<span class="material-icons md-18">group</span></a></ul>
+             <ul class="company"><a href="">Company 4<span class="material-icons md-18">group</span></a></ul>
+             <ul class="company"><a href="">Company 5<span class="material-icons md-18">group</span></a></ul>
+           </div>
         </aside>
         <main class="container__main">
             <div id= "container" class = "grid-container">              
