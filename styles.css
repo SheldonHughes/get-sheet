@@ -91,6 +91,7 @@
   .container {
     display:flex;
     background-color: aqua;
+    height: 100vh;
   }
 
   .container__sidebar {
@@ -99,7 +100,7 @@
     flex-direction: column;
     justify-content:start;
     width: 300px;
-    height: 800px;
+    height: 100%;
     background-color: gainsboro;
     border-radius: 10px;
     border: 2px solid black;
@@ -115,8 +116,8 @@
   .grid-container {
     /* flex: 1; */
     display: grid;
-    height: 800px;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    height: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     justify-items: center;
     gap: 1rem;
     overflow: auto;
