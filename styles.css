@@ -31,24 +31,30 @@
     align-self: center;
     }
   
-  .search {
+.search {
     grid-column: 3;
     margin: .5rem;
     border-radius: 5px;
     }
-  .searchbox {
-    width: 220px;
+
+.company__search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+    
+    
+.searchbox {
+    flex-grow: 1;
     height: 30px;
     margin-left: .5rem;
     border: 1px solid black;
     box-shadow: 2px 1px black;
     border-radius: 5px;    
   }
-.company__search {
-  height: 35px;
-}
   
-  .empty {
+  
+.empty {
     visibility: none;
     grid-column: 1;
   }
@@ -62,7 +68,10 @@
   .company {
     display: flex;
     height: 2.5rem;
-    width: auto;
+    width: 100%;
+    margin-bottom: 5px;
+    padding-left: .5rem;
+    padding-right: .5rem;
     border: 1px solid black;
     border-radius: 5px;
     background-color: azure;
@@ -86,8 +95,10 @@
 
   .container__sidebar {
     /* position: absolute; */
-    /* display: flex; */
-    width:300px;
+    display: flex;
+    flex-direction: column;
+    justify-content:start;
+    width: 300px;
     height: 800px;
     background-color: gainsboro;
     border-radius: 10px;
