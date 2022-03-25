@@ -1,31 +1,5 @@
-let users = [];
-
-fetch('phone_numbers.json')
-  .then(response => response.json())
-  .then(json => {
-    // console.log(json)
-
-    //Check into removing the first json.map and beginning with Object.entries()
-   json.map(user => {
-      // console.log(user)
-      // debugger
-      Object.entries(user).forEach(([key, value])=>{
-        // console.log(`This is ${key} of ${value.Company}`)
-        let box = document.createElement("div")
-        box.className = "box"
-        //TODO: Add phone number formatting
-        box.innerHTML = `Name: ${key}<br>
-                        Company: ${value.Company}<br>
-                        
-                        Phone#: ${value.Phone}`
-        document.getElementById('container').appendChild(box)
-        users.push({company: value.Company, name: key, phone: value.Phone, box: box})
-      })
-            })
-        }
-      )
-      
-console.log(users)
+import { users } from "./source/source"
+// console.log(users)
 
 const searchItem = document.querySelector('.searchbox')
   searchItem.addEventListener('input', e =>{
@@ -36,3 +10,14 @@ const searchItem = document.querySelector('.searchbox')
       user.box.classList.toggle('hide', !isVisible)
     })
 })
+
+let companyNames = []
+console.log(companyNames);
+
+window.addEventListener('load', function() {
+  users.forEach(user =>{
+    const companyName = user.company
+    if(!companyNames.includes(companyName))
+    companyNames.push(companyName)
+  })}
+)
