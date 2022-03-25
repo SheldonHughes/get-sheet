@@ -1,5 +1,5 @@
 import { users } from "./source/source"
-// console.log(users)
+console.log(users)
 
 const searchItem = document.querySelector('.searchbox')
   searchItem.addEventListener('input', e =>{
@@ -14,10 +14,16 @@ const searchItem = document.querySelector('.searchbox')
 let companyNames = []
 console.log(companyNames);
 
+const section = document.getElementById('company-list')
+
 window.addEventListener('load', function() {
   users.forEach(user =>{
     const companyName = user.company
     if(!companyNames.includes(companyName))
     companyNames.push(companyName)
+    // let list = document.createElement('li')
+    // list.classList.add('company')
+    // console.log(companyName)
+    // list.innerHTML = `<a href="">${companyName} class="material-icons md-18">group</span></a>`
   })}
 )
