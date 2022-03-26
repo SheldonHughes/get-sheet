@@ -1,11 +1,11 @@
 import { users } from "./source/source"
-console.log(users)
+// console.log(users)
 
 const searchItem = document.querySelector('.searchbox')
   searchItem.addEventListener('input', e =>{
     const value = isNaN(e.target.value) ? e.target.value.toString().toLowerCase() : e.target.value.toLowerCase()
     users.forEach(user =>{
-      console.log(user)
+      // console.log(user)
       const isVisible = user.company.toLowerCase().includes(value) || user.name.toLowerCase().includes(value)
       user.box.classList.toggle('hide', !isVisible)
     })
@@ -16,14 +16,26 @@ console.log(companyNames);
 
 const section = document.getElementById('company-list')
 
-window.addEventListener('load', function() {
+
+function getUniqueNames(){
   users.forEach(user =>{
     const companyName = user.company
     if(!companyNames.includes(companyName))
-    companyNames.push(companyName)
-    // let list = document.createElement('li')
-    // list.classList.add('company')
-    // console.log(companyName)
-    // list.innerHTML = `<a href="">${companyName} class="material-icons md-18">group</span></a>`
-  })}
-)
+      companyNames.push(companyName)
+    })
+  }
+
+
+async function listCompanyNames() {
+  await getUniqueNames();
+  companyNames.forEach(name =>{
+  console.log(name)
+    let list = document.createElement('li')
+    list.classList.add('company')
+       list.insertAdjacentHTML("beforeend", `<a href="javascript:void(0);">${name}<span class="material-icons md-18">group</span></a>`)
+    section.appendChild(list)
+  })
+}
+
+window.addEventListener('load', listCompanyNames)
+

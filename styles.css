@@ -105,7 +105,7 @@
     border-radius: 10px;
     border: 2px solid black;
     padding: 1rem;
-    overflow: hidden;
+    overflow: scroll;
     margin-left: 5px;
   }
 
