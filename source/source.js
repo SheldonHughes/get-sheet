@@ -21,7 +21,7 @@ fetch('phone_numbers.json')
                         Phone#: ${value.Phone}`
         document.getElementById('container').appendChild(box)
         users.push({company: value.Company, name: key, phone: value.Phone, box: box})
-      })
+              })
             })
         }
       )

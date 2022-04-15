@@ -1,5 +1,5 @@
 import { users } from "./source/source"
-console.log(users)
+// console.log(users)
 
 const searchItem = document.querySelector('.searchbox')
   searchItem.addEventListener('input', e =>{
@@ -20,11 +20,10 @@ const section = document.getElementById('company-list')
 async function getUniqueNames(){
   users.forEach(user =>{
     const companyName = user.company
-    console.log(companyName)
+    // console.log(companyName)
     if(!companyNames.includes(companyName))
       companyNames.push(companyName)
     })
-    // return Promise.resolve()
   }
 
 
