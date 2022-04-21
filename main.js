@@ -44,7 +44,7 @@ async function listCompanyNames() {
   console.log('called')
   await getUniqueNames();
   companyNames.forEach(name =>{
-  // console.log(name)
+  console.log(name)
     let list = document.createElement('li')
     list.classList.add('company')
        list.insertAdjacentHTML("beforeend", `<a href="javascript:void(0);">${name}<span class="material-icons md-18">group</span></a>`)

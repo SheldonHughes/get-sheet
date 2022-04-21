@@ -19,4 +19,15 @@ fetch('phone_numbers.json')
             })
         }
       )
-      
+
+// const searchItem = document.querySelector('.searchbox')
+//   searchItem.addEventListener('input', e =>{
+//     const value = isNaN(e.target.value) ? e.target.value.toString().toLowerCase() : e.target.value.toLowerCase()
+//     console.log(value)
+//     users.forEach(user =>{
+//       // console.log(user)
+//       const isVisible = user.company.toLowerCase().includes(value) || user.name.toLowerCase().includes(value)
+//       // console.log(isVisible)
+//       user.box.classList.toggle('hide', !isVisible)
+//     })
+// })
