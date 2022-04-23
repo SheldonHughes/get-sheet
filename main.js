@@ -7,15 +7,17 @@ const searchItem = document.querySelector('.searchbox')
     const value = isNaN(e.target.value) ? e.target.value.toString().toLowerCase() : e.target.value.toLowerCase()
     console.log(value)
     users.forEach(user =>{
-      // console.log(user)
       const isVisible = user.company.toLowerCase().includes(value) || user.name.toLowerCase().includes(value)
-      // console.log(isVisible)
-      user.box.classList.toggle('hide', !isVisible)
+      // user.box.classList.toggle('hide', !isVisible)
+      if(!isVisible) {
+        user.box.style.display = "none";
+      }else {
+        user.box.style.display = "";
+      }
     })
 })
 
-let companyNames = []
-console.log(companyNames);
+// console.log(companyNames);
 
 function renderCompanies(company) {
   console.log(`${company} was clicked.`)
@@ -24,13 +26,14 @@ function renderCompanies(company) {
   //       //TODO: Add phone number formatting
   //       box.innerHTML = `Name: ${key}<br>
   //                       Company: ${value.Company}<br>
-                        
+  
   //                       Phone#: ${value.Phone}`
   //       document.getElementById('container').appendChild(box)
 }
 
 
-async function getUniqueNames(){
+function getUniqueNames(){
+  let companyNames = []
   users.forEach(user =>{
     const companyName = user.company
     console.log(companyName)
@@ -42,8 +45,8 @@ async function getUniqueNames(){
 
 async function listCompanyNames() {
   console.log('called')
-  await getUniqueNames();
-  companyNames.forEach(name =>{
+  const companyNamesArr = await getUniqueNames();
+  companyNamesArr.forEach(name =>{
   console.log(name)
     let list = document.createElement('li')
     list.classList.add('company')
