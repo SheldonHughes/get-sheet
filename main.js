@@ -34,11 +34,12 @@ function renderCompanies(company) {
 }
 
 
-function getUniqueNames(){
+async function getUniqueNames(){
+  console.log(`1:called`)
   let companyNames = []
   users.forEach(user =>{
     const companyName = user.company
-    console.log(companyName)
+    // console.log(companyName)
     if(!companyNames.includes(companyName))
       companyNames.push(companyName)
     }); return companyNames
@@ -48,14 +49,16 @@ function getUniqueNames(){
 async function listCompanyNames() {
   console.log('called')
   const companyNamesArr = await getUniqueNames();
-  companyNamesArr.forEach(name =>{
-  // console.log(name)
+  // Try a then chain???
+  companyNamesArr.forEach(name => {
+    console.log(name)
     let list = document.createElement('li')
     list.classList.add('company')
-       list.insertAdjacentHTML("beforeend", `<a href="javascript:void(0);">${name}<span class="material-icons md-18">group</span></a>`)
+    list.insertAdjacentHTML("beforeend", `<a href="javascript:void(0);">${name}<span class="material-icons md-18">group</span></a>`)
     section.appendChild(list)
-    list.addEventListener('click', function(){
-      renderCompanies(name)})
+    list.addEventListener('click', function () {
+      renderCompanies(name)
+    })
   })
 }
 
