@@ -1,24 +1,49 @@
 //Move functions to get current info into this sheet
-export let users = [];
+import papaparse from "papaparse";
 
-fetch('phone_numbers.json')
-  .then(response => response.json())
-  .then(json => {
-   json.map(user => {
-      Object.entries(user).forEach(([key, value])=>{
-        let box = document.createElement("div")
-        box.className = "box"
-        //TODO: Add phone number formatting
-        box.innerHTML = `Name: ${key}<br>
-                        Company: ${value.Company}<br>
-                        
-                        Phone#: ${value.Phone}`
-        document.getElementById('container').appendChild(box)
-        users.push({company: value.Company, name: key, phone: value.Phone, box: box})
+export let users = [];
+//Googel Sheets URL
+const spreadsheet = "https://docs.google.com/spreadsheets/d/1yIEHomTq8iLlrk1xGzaN19xWFFxZQfWmBj4LLRfbKw0/export?gid=877321553&format=csv"
+
+function init() {
+  papaparse.Papa.parse(spreadsheet, {
+  download: true,
+  header: true,
+  complete: function(results) {
+    try {
+      console.log(results)
+      const data = results.data
+      // console.log(data)
+      users = data.map(el => {
+        return {name: el.Name, company: el.Company, phone: el.Phone}
               })
-            })
-        }
-      )
+    } catch (err) {
+    throw new Error(`Something failed`);
+    }
+}
+})
+}
+
+init();
+
+// fetch('phone_numbers.json')
+//   .then(response => response.json())
+//   .then(json => {
+//    json.map(user => {
+//       Object.entries(user).forEach(([key, value])=>{
+//         let box = document.createElement("div")
+//         box.className = "box"
+//         //TODO: Add phone number formatting
+//         box.innerHTML = `Name: ${key}<br>
+//                         Company: ${value.Company}<br>
+                        
+//                         Phone#: ${value.Phone}`
+//         document.getElementById('container').appendChild(box)
+//         users.push({company: value.Company, name: key, phone: value.Phone, box: box})
+//               })
+//             })
+//         }
+//       )
 
 // const searchItem = document.querySelector('.searchbox')
 //   searchItem.addEventListener('input', e =>{
