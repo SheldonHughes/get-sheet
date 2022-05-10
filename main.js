@@ -1,5 +1,5 @@
 import { users } from "./source/source"
-// console.log(users)
+console.log(users)
 const section = document.getElementById('company-list')
 
 const searchItem = document.querySelector('.searchbox')
@@ -60,6 +60,10 @@ async function listCompanyNames() {
       renderCompanies(name)
     })
   })
+}
+
+if(module.hot) {
+  module.hot.accept();
 }
 
 window.addEventListener('load', listCompanyNames)

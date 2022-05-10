@@ -3,7 +3,7 @@
 import Papa from 'papaparse';
 
 export let users = [];
-//Googel Sheets URL
+//Google Sheets URL
 const spreadsheet = "https://docs.google.com/spreadsheets/d/1yIEHomTq8iLlrk1xGzaN19xWFFxZQfWmBj4LLRfbKw0/export?gid=877321553&format=csv"
 
 function init() {
@@ -20,9 +20,9 @@ function init() {
               })
     } catch (err) {
     throw new Error(`Something failed`);
+        }
     }
-}
-})
+  })
 }
 
 init()
