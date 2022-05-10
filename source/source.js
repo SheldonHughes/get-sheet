@@ -1,12 +1,13 @@
-//Move functions to get current info into this sheet
-import papaparse from "papaparse";
+//Move functions to get current info into this sheet;
+
+import Papa from 'papaparse';
 
 export let users = [];
 //Googel Sheets URL
 const spreadsheet = "https://docs.google.com/spreadsheets/d/1yIEHomTq8iLlrk1xGzaN19xWFFxZQfWmBj4LLRfbKw0/export?gid=877321553&format=csv"
 
 function init() {
-  papaparse.Papa.parse(spreadsheet, {
+  Papa.parse(spreadsheet, {
   download: true,
   header: true,
   complete: function(results) {
@@ -24,7 +25,12 @@ function init() {
 })
 }
 
-init();
+init()
+
+//TODO:Integrate below return code into above fetch.
+
+
+// window.addEventListener('DOMContentLoaded', init)
 
 // fetch('phone_numbers.json')
 //   .then(response => response.json())
