@@ -12,10 +12,18 @@ function init() {
   header: true,
   complete: function(results) {
     try {
-      console.log(results)
+      // console.log(results)
       const data = results.data
-      // console.log(data)
+      console.log(data)
       users = data.map(el => {
+        let box = document.createElement("div")
+        box.className = "box"
+        //TODO: Add phone number formatting
+        box.innerHTML = `Name: ${el.Name}<br>
+                        Company: ${el.Company}<br>
+                        
+                        Phone#: ${el.Phone}`
+        document.getElementById('container').appendChild(box)
         return {name: el.Name, company: el.Company, phone: el.Phone}
               })
     } catch (err) {
