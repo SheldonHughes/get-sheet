@@ -1,39 +1,40 @@
-//Move functions to get current info into this sheet;
+// //Move functions to get current info into this sheet;
 
-import Papa from 'papaparse';
+// import Papa from 'papaparse';
+// //Google Sheets URL
+// const spreadsheet = "https://docs.google.com/spreadsheets/d/1yIEHomTq8iLlrk1xGzaN19xWFFxZQfWmBj4LLRfbKw0/export?gid=877321553&format=csv"
 
-export let users = [];
-//Google Sheets URL
-const spreadsheet = "https://docs.google.com/spreadsheets/d/1yIEHomTq8iLlrk1xGzaN19xWFFxZQfWmBj4LLRfbKw0/export?gid=877321553&format=csv"
+// export function getUsers(users) {
+//   Papa.parse(spreadsheet, {
+//     download: true,
+//     header: true,
+//     complete: function(results) {
+//       try {
+//         // console.log(results)
+//         const data = results.data
+//         // console.log(data)
+//         users = data.map(el => {
+//           let box = document.createElement("div")
+//           box.className = "box"
+//           //TODO: Add phone number formatting
+//           box.innerHTML = `Name: ${el.Name}<br>
+//           Company: ${el.Company}<br>
+          
+//           Phone#: ${el.Phone}`
+//           document.getElementById('container').appendChild(box)
+//           return {name: el.Name, company: el.Company, phone: el.Phone}
+//         })
+//         console.log(users)
+//       } catch (err) {
+//         throw new Error(`Something failed`);
+//       }
+//     }
+//   })
+// }
 
-function init() {
-  Papa.parse(spreadsheet, {
-  download: true,
-  header: true,
-  complete: function(results) {
-    try {
-      // console.log(results)
-      const data = results.data
-      console.log(data)
-      users = data.map(el => {
-        let box = document.createElement("div")
-        box.className = "box"
-        //TODO: Add phone number formatting
-        box.innerHTML = `Name: ${el.Name}<br>
-                        Company: ${el.Company}<br>
-                        
-                        Phone#: ${el.Phone}`
-        document.getElementById('container').appendChild(box)
-        return {name: el.Name, company: el.Company, phone: el.Phone}
-              })
-    } catch (err) {
-    throw new Error(`Something failed`);
-        }
-    }
-  })
-}
 
-init()
+
+
 
 //TODO:Integrate below return code into above fetch.
 
