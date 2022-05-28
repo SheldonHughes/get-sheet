@@ -1,9 +1,9 @@
 {
   "name": "get-sheet",
   "source": "index.html",
-  "scripts": {
+    "scripts": {
     "serve": "parcel index.html",
-    "build": "parcel build"
+    "build": "parcel build --no-optimize"
   },
   "devDependencies": {
     "parcel": "latest"
