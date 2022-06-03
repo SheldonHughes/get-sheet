@@ -6,12 +6,6 @@ const spreadsheet = "https://docs.google.com/spreadsheets/d/1yIEHomTq8iLlrk1xGza
 
 let users = [];
 
-
-  // setTimeout(() => {
-  //   console.log(users);
-  // }, 5000);
-
-
 const userData = function() {
   return new Promise((resolve, reject) => {
     try {
@@ -21,7 +15,6 @@ const userData = function() {
         complete: function(results) {
           resolve(results.data)
           const data = results.data
-          // console.log(data)
           return data;
         }
       })
@@ -32,39 +25,25 @@ const userData = function() {
 }
 
 users = userData()
-.then(res=> {
-  // console.log(res)
-          users = res.map(el => {
-            let box = document.createElement("div")
-            box.className = "box"
-            //TODO: Add phone number formatting
-            box.innerHTML = `<strong>Name:</strong> ${el.Name}<br>
-            <strong>Company:</strong> ${el.Company}<br>
-          
-            <strong>Phone#:</strong> ${el.Phone}`
-            document.getElementById('container').appendChild(box)
-            return {name: el.Name, company: el.Company, phone: el.Phone, box: box}
-          })
+  .then(res=> {
+    // console.log(res)
+            users = res.map(el => {
+              let box = document.createElement("div")
+              box.className = "box"
+              //TODO: Add phone number formatting
+              box.innerHTML = `<strong>Name:</strong> ${el.Name}<br>
+              <strong>Company:</strong> ${el.Company}<br>
+            
+              <strong>Phone#:</strong> ${el.Phone}`
+              document.getElementById('container').appendChild(box)
+              return {name: el.Name, company: el.Company, phone: el.Phone, box: box}
+            })
           // console.log(users)
           listCompanyNames();
 })
 
-
-// setTimeout(()=>{
-//   // console.log(users)
-//     users.forEach(user=>{
-//       console.log(user)
-//     })},
-//   3000)
-
-
-// async function getUserData() {}
-
-// async function renderCompanies(){
-
-// };
-  // console.log(users)
-const section = document.getElementById('company-list')
+const section = document.getElementById('company-list');
+const companySearchBox = document.getElementById('company-search');
 
 const searchItem = document.querySelector('.searchbox')
   searchItem.addEventListener('input', e =>{
@@ -83,10 +62,8 @@ const searchItem = document.querySelector('.searchbox')
     })
 })
 
-// console.log(companyNames);
-
 function sortCompanies(company) {
-  console.log(`${company} was clicked.`)
+  // console.log(`${company} was clicked.`)
   const value = isNaN(company) ? company.toString().toLowerCase() : company.toLowerCase()
     users.forEach(user =>{
       const isVisible = user.company.toLowerCase().includes(value)
@@ -99,8 +76,7 @@ function sortCompanies(company) {
     })
 }
 
-
-async function getUniqueNames(){
+const  getUniqueNames = function(){
   // console.log(`1:called`)
   let companyNames = []
   users.forEach(user =>{
@@ -114,7 +90,7 @@ async function getUniqueNames(){
 
 async function listCompanyNames() {
   // console.log('called')
-  const companyNamesArr = await getUniqueNames();
+  const companyNamesArr = getUniqueNames();
     companyNamesArr.forEach(name => {
       // console.log(name)
       let list = document.createElement('li')
@@ -127,11 +103,23 @@ async function listCompanyNames() {
     })
 }
 
+companySearchBox.addEventListener('input', e => {
+  const value = isNaN(e.target.value) ? e.target.value.toString().toLowerCase() : e.target.value.toLowerCase()
+  console.log(typeof getUniqueNames())
+  Array.from(getUniqueNames()).forEach((company) =>{
+    console.log(company)
+    // const isVisible = company.company.toLowerCase().includes(value) || company.name.toLowerCase().includes(value)
+    // user.box.classList.toggle('hide', !isVisible)
+    // if(!isVisible) {
+    //   company.company.style.display = "none";
+    // }else {
+    //   company.company.style.display = "";
+    // }
+  })
+});
+
 if(module.hot) {
   module.hot.accept();
 };
 
-// init()
-
-// window.addEventListener('load', listCompanyNames)
 
