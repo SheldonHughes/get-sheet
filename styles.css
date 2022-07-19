@@ -5,12 +5,14 @@
   padding: 0:
 }
 
-/* div {
-  display: flex;
-} */
+
 
 :root (
   --header-height: 60px;
+  --primary-color: hsl(190, 76%, 40%);
+  --secondary-color: hsl(174, 69%, 68%);
+  --tertiary-color: hsl(198, 90%, 19%);
+  --background: hsl(186, 59%, 89%)
 )
 
 .hide {
@@ -72,6 +74,7 @@
     display: contents;
     text-decoration: none;
     width: 100%;
+    color: var(--tertiary-color);
   }
 
   .company {
@@ -81,9 +84,9 @@
     margin-bottom: 5px;
     padding-left: .5rem;
     padding-right: .5rem;
-    border: 1px solid black;
+    border: 1px solid var(--tertiary-color);
     border-radius: 5px;
-    background-color: azure;
+    background-color: var(--background);
     cursor: pointer;
     justify-content: space-between;
     align-items: center;
@@ -94,8 +97,9 @@
       0 22.3px 17.9px rgba(0, 0, 0, 0.072),
       0 41.8px 33.4px rgba(0, 0, 0, 0.086),
       0 100px 80px rgba(0, 0, 0, 0.12)
-  ;
+    ;
   }
+
 
   .container {
     display:flex;
@@ -110,9 +114,9 @@
     justify-content:start;
     width: 300px;
     height: calc(100vh - var(--header-height));
-    background-color: gainsboro;
+    background-color: var(--background);
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid var(--tertiary-color);
     padding: 1rem;
     overflow-y: auto;
     overflow-x: hidden;
